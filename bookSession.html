@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Speaker Details & Availability">
+
+        <template if:false={speakerRecord}>
+            <p class="slds-p-around_medium">
+                Select a speaker to view details
+            </p>
+        </template>
+
+        <template if:true={speakerRecord}>
+            <div class="slds-p-around_medium">
+                <p><b>Name:</b> {speakerRecord.Name}</p>
+                <p><b>Speciality:</b> {speakerRecord.Speciality__c}</p>
+                <p><b>Bio:</b> {speakerRecord.Bio__c}</p>
+
+            </div>
+        </template>
+
+        <lightning-input
+                    type="date"
+                    label="Select Session Date"
+                    min={today}
+                    onchange={handleDateChange}>
+         </lightning-input>
+         
+         <template if:true={isCreateDisabled}>
+         <lightning-button
+         label="Create Assignment"
+         variant="brand"
+         class="slds-m-top_medium"
+         onclick={handleCreateAssignment}>
+     </lightning-button>
+    </template>
+ 
+    </lightning-card>
+</template>

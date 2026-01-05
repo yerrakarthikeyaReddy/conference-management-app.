@@ -1,0 +1,29 @@
+<template>
+    <lightning-layout>
+            
+        <lightning-layout-item size="6">
+                <div class="slds-p-left_medium">
+      <lightning-input label="Enter Speaker Name" onchange={handleInput}></lightning-input>
+                        </div>
+        </lightning-layout-item>	
+            
+        <lightning-layout-item size="6">
+                <div class="slds-p-right_medium ">						
+                    <lightning-combobox
+                    label="Speciality"
+                    value={selected}
+                    options={specialityOptions}
+                    onchange={handlechange}>
+                </lightning-combobox> 
+                        </div>
+        </lightning-layout-item>
+            
+    </lightning-layout>	
+    <div class="slds-m-top_large slds-m-left_medium ">	
+    <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+    </div>
+    <c-speaker-list
+    speakervalue={searchspeaker}
+    specialityvalue={selected}>
+</c-speaker-list>
+</template>
